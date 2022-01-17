@@ -1,0 +1,1 @@
+web: gunicorn backend.wsgi && python manage.py collectstatic --noinput
