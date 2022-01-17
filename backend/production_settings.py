@@ -3,8 +3,9 @@ import os
 import django_heroku
 DEBUG=False
 
-ALLOWED_HOSTS += ['myownresume.herokuapp.com', ".herokuapp.com",
+ALLOWED_HOSTS = ['myownresume.herokuapp.com', ".herokuapp.com",
                   "0.0.0.0", "127.0.0.1", "https://myownresume.herokuapp.com/", "myownresume.herokuapp.com"]
+
 INSTALLED_APPS += [
     
     'rest_framework',
