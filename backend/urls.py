@@ -34,7 +34,7 @@ urlpatterns = [
          name='redoc'),
     
     path(BASE_URL+'admin/', admin.site.urls),
-    path(BASE_URL+'api/auth', include('authentication.urls'))
+    path(BASE_URL+'api/auth/', include('authentication.urls'))
     
 ]
 handler404 = 'backend.views.error404'
