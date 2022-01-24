@@ -1,1 +1,1 @@
-web: gunicorn backend.wsgi && python manage.py collectstatic --noinput
+web: python manage.py spectacular --file schema.yml && gunicorn backend.wsgi && python manage.py collectstatic --noinput
