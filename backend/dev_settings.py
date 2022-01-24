@@ -3,9 +3,12 @@ import os
 DEBUG=True
 ALLOWED_HOSTS+=['*']
 INSTALLED_APPS += [
+ #own   
+'apps' ,
+    'authentication',
+#third party 
 
-    'rest_framework',
-    'rest_framework_swagger',
+
     
 ]
 
@@ -20,17 +23,16 @@ DATABASES = {
 }
 
 
-CORS_ALLOW_ALL_ORIGINS: bool
+CORS_ALLOW_ALL_ORIGINS: True
 CORS_URLS_REGEX = r"^/api/.*$"
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS':  'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
-
 
 
 # Extra places for collectstatic to find static files.

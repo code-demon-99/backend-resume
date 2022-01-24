@@ -10,9 +10,14 @@ django-heroku = "*"
 whitenoise = "*"
 django-rest-swagger = "*"
 django-cors-headers = "*"
+drf-yasg = "*"
+django-environ = "*"
 
 [dev-packages]
 autopep8 = "*"
 
 [requires]
 python_version = "3.8"
+
+[packages.drf-spectacular]
+extras = [ "sidecar",]

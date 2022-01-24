@@ -1,3 +1,4 @@
+from telnetlib import AUTHENTICATION
 from .base import *
 import os 
 import django_heroku
@@ -6,14 +7,11 @@ DEBUG=False
 
 
 INSTALLED_APPS += [
-    
-    'rest_framework',
-    'rest_framework_swagger',
-    
+   'authentication',
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+STATIC_URL = BASE_URL+'/static/'
 
 MIDDLEWARE+=[
    'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -25,7 +23,10 @@ REST_FRAMEWORK = {
         'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
 }
 
 

@@ -1,0 +1,22 @@
+{% extends "rest_framework/base.html" %}
+
+{% block title %}
+My Resume
+{% endblock title %}
+
+{% block branding %}
+<a class="navbar-brand" rel="nofollow" href="https://www.rishinamdev.ml">
+                RESUME APIS
+                </a>
+{% endblock branding %}
+{% block userlinks %}
+{{ block.super }}
+
+  <!--<li class="active">-->
+    <li>
+    <a href="/doc">API Docs</a>
+  </li>
+  <li><a href="/redoc">document APIs</a></li>
+  <!--<li><a href="#">Link</a<>/li>-->  
+{% endblock userlinks %}
+

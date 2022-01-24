@@ -14,15 +14,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-from django.conf.urls import url
-from rest_framework_swagger.views import get_swagger_view
-schema_view = get_swagger_view(title='My Resume APIS')
+from django.urls import (path, include, )
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from django.conf import settings
+
+from backend.base import BASE_URL
+BASE_URL=settings.BASE_URL
+
+
 
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-     path('api-auth/', include('rest_framework.urls')),
-    path('api-docs', schema_view)
+    
+    path(BASE_URL+'api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    path(BASE_URL+'api/doc/', SpectacularSwaggerView.as_view(url_name='schema'),
+         name='swagger-ui'),
+    path(BASE_URL+'api/redoc/', SpectacularRedocView.as_view(url_name='schema'),
+         name='redoc'),
+    
+    path(BASE_URL+'admin/', admin.site.urls),
+    path(BASE_URL+'api/auth', include('authentication.urls'))
+    
 ]
+handler404 = 'backend.views.error404'
+handler500 = 'rest_framework.exceptions.server_error'
+handler400 = 'rest_framework.exceptions.bad_request'
+# handler403 = 'rest_framework.exceptions.bad'
