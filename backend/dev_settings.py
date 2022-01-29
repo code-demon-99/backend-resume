@@ -3,10 +3,17 @@ import os
 DEBUG=True
 ALLOWED_HOSTS+=['*']
 INSTALLED_APPS += [
- #own   
-'apps' ,
-    'authentication',
-#third party 
+    #own   
+    'api.authentication',
+    'api.about',
+    'api.skills',
+    'api.education',
+    'api.experience',
+    'api.certifications',
+    'api.projects'
+    
+
+    #third party 
 
 
     
@@ -28,6 +35,8 @@ CORS_URLS_REGEX = r"^/api/.*$"
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
     'DEFAULT_SCHEMA_CLASS':  'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'

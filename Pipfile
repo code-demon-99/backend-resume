@@ -12,6 +12,7 @@ django-rest-swagger = "*"
 django-cors-headers = "*"
 drf-yasg = "*"
 django-environ = "*"
+pillow = "*"
 
 [dev-packages]
 autopep8 = "*"
