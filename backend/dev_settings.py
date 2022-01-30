@@ -10,10 +10,11 @@ INSTALLED_APPS += [
     'api.education',
     'api.experience',
     'api.certifications',
-    'api.projects'
+    'api.projects',
     
 
     #third party 
+    'django_filters'
 
 
     
@@ -40,7 +41,8 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS':  'drf_spectacular.openapi.AutoSchema',
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 

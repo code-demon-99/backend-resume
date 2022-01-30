@@ -13,6 +13,7 @@ django-cors-headers = "*"
 drf-yasg = "*"
 django-environ = "*"
 pillow = "*"
+django-filter = "*"
 
 [dev-packages]
 autopep8 = "*"
